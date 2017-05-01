@@ -1,0 +1,13 @@
+{
+	"comment": "",
+	"ignore": "test",
+	"package": [
+		{
+			"checksumSHA1": "BsLWh5I/26keTV9klPPRMAJZGVw=",
+			"path": "github.com/x6doooo/gout",
+			"revision": "38578135cbb4d3df4232a68907a17cfa031c4a78",
+			"revisionTime": "2017-05-01T08:51:30Z"
+		}
+	],
+	"rootPath": "snowball"
+}
