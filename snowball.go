@@ -12,7 +12,6 @@ import (
     "io/ioutil"
     "encoding/json"
     "time"
-    "github.com/x6doooo/gout"
 )
 
 const (
@@ -113,7 +112,7 @@ func (me *Client) GetCodeList() (list []string) {
 
 var detailFloatFieldsMap = make(map[string]bool)
 
-func (me *Client) GetDetail(codes string) (list []StockDetail) {
+func (me *Client) GetDetail(codes string) (list []map[string]interface{}) {
     req, _ := http.NewRequest("GET", apiStockDetail + "?code=" + codes, nil)
     resp, _ := me.httpClient.Do(req)
     defer resp.Body.Close()
@@ -142,13 +141,7 @@ func (me *Client) GetDetail(codes string) (list []StockDetail) {
             }
         }
 
-        detail := StockDetail{}
-        err := gout.Map2Struct(itemCast, &detail, false)
-        if err != nil {
-
-        }
-
-        list = append(list, detail)
+        list = append(list, itemCast)
     }
     return list
 }
